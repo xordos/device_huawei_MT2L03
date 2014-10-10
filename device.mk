@@ -24,6 +24,7 @@ PRODUCT_COPY_FILES += \
 # Recovery
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/recovery/recovery.fstab:recovery/root/etc/recovery.fstab \
+    $(LOCAL_PATH)/recovery/myinit.usb.rc:recovery/root/myinit.usb.rc \
     $(LOCAL_PATH)/recovery/init.qcom.usb.sh:recovery/root/etc/init.qcom.usb.sh \
     $(LOCAL_PATH)/recovery/charger:recovery/root/charger \
     $(LOCAL_PATH)/recovery/sbin/adbd:recovery/root/sbin/adbd \

@@ -1,4 +1,5 @@
 import /init.recovery.${ro.hardware}.rc
+import /myinit.usb.rc
 
 on early-init
     start ueventd
@@ -125,6 +126,11 @@ on property:power_off_charge=1
     write  /sys/module/pm_8x60/modes/cpu0/stand0alone_power_collapse/suspend_enabled 1
     write  /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled 1
 
+on property:ro.boot.mode=hwcharger
+    stop recovery
+    setprop power_off_charge 1
+    start charge
+
 #start modem in recovery
 service huawei_version /sbin/huawei_version
     user root
@@ -217,8 +223,10 @@ on property:recovery.start_svice=true
 
 on property:recovery.all_cpus_online=true
     start cpu_ops
-service chargelog  /sbin/chargelog.sh 2 15000
-    root charger
+#has syntax error, and log is disabled anyway
+#service chargelog  /sbin/chargelog.sh 2 15000
+#    #root charger
+#    user root
 
 service charge /sbin/charge
     user root

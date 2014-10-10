@@ -1,3 +1,24 @@
 #
 # system.prop for MT2L03
 #
+ro.debuggable=1
+persist.sys.usb.config=adb
+sys.usb.config=mass_storage,adb
+service.adb.root=1
+
+# system props for the data modules
+#
+ro.use_data_netmgrd=true
+persist.data.netmgrd.qos.enable=true
+
+#system props for time-services
+persist.timed.enable=true
+
+#Huawei prop
+ro.hw.usb.google.nluns=3
+ro.hw.usb.google.cdrom=2
+ro.hw.usb.pid.normal=1035
+ro.hw.usb.update.functions=serial,mass_storage,adb,diag
+ro.hw.usb.pid.cdrom=1031
+ro.hw.usb.pid.auth=1033
+
